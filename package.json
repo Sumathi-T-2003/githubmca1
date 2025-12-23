@@ -1,0 +1,11 @@
+{
+  "name": "christmas-brochure",
+  "version": "1.0.0",
+  "description": "Christmas Celebration Brochure using HTML CSS JS Bootstrap",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
