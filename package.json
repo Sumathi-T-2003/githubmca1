@@ -1,11 +1,11 @@
 {
-  "name": "christmas-brochure",
+  "name": "scholarship-form",
   "version": "1.0.0",
-  "description": "Christmas Celebration Brochure using HTML CSS JS Bootstrap",
+  "description": "Simple Scholarship Application Form",
   "main": "index.html",
   "scripts": {
-    "start": "serve ."
+    "start": "live-server"
   },
   "author": "Your Name",
-  "license": "MIT"
+  "license": "ISC"
 }
