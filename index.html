@@ -1,270 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>GST Invoice</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<style>
-:root{--brand:#b71c1c;--border:#444}
-*{box-sizing:border-box}
-body{
-    font-family:Segoe UI,Arial,sans-serif;
-    background:#f2f2f2;
-    padding:20px;
-}
-.invoice{
-    max-width:900px;
-    margin:auto;
-    background:#fff;
-    padding:20px;
-    border:1px solid #ccc;
-}
-.top-btns{
-    display:flex;
-    justify-content:flex-end;
-    gap:10px;
-    margin-bottom:10px;
-}
-.btn{
-    background:var(--brand);
-    color:#fff;
-    border:none;
-    padding:8px 14px;
-    border-radius:6px;
-    font-weight:600;
-    cursor:pointer;
-}
-
-/* HEADER */
-.header{
-    display:grid;
-    grid-template-columns:90px 1fr;
-    gap:15px;
-    border-bottom:3px solid var(--brand);
-    padding-bottom:10px;
-}
-.logo{
-    width:80px;height:80px;
-    border:1px dashed #aaa;
-    object-fit:contain;
-}
-.shop-name{
-    font-size:26px;
-    font-weight:700;
-    color:var(--brand);
-}
-.small{font-size:13px}
-
-/* COMMON */
-.box{
-    border:1px solid var(--border);
-    padding:10px;
-    margin-top:10px;
-}
-.grid2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-h3{
-    margin:0 0 6px 0;
-    font-size:15px;
-    border-bottom:1px solid #aaa;
-}
-input{
-    width:100%;
-    border:none;
-    outline:none;
-    font-size:14px;
-}
-
-/* TABLE */
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:12px;
-}
-th,td{
-    border:1px solid var(--border);
-    padding:6px;
-    text-align:center;
-    font-size:14px;
-}
-th{
-    background:var(--brand);
-    color:#fff;
-}
-
-/* SUMMARY */
-.summary td{border:none;text-align:right}
-.summary td:first-child{text-align:left}
-
-@media print{
-    .top-btns,input[type=file]{display:none}
-    body{background:#fff}
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Scholarship Application Form</title>
+  <link rel="stylesheet" href="src/style.css">
 </head>
-
 <body>
 
-<div class="top-btns">
-    <button class="btn" onclick="downloadPDF()">⬇ PDF</button>
-    <button class="btn" onclick="downloadImage()">🖼 Image</button>
-    <button class="btn" onclick="shareWhatsApp()">📤 WhatsApp</button>
-</div>
+  <div class="container">
+    <h1>🎓 Scholarship Application Form</h1>
 
-<div class="invoice" id="invoice">
+    <form id="scholarshipForm">
 
-<!-- HEADER -->
-<div class="header">
-    <img id="logoPreview" class="logo">
-    <div>
-        <div class="shop-name"><input id="shop" value="MUTHU MOBILES"></div>
-        <div class="small">
-            <input value="Scoot Road, Madurai"><br>
-            GSTIN: <input value="33QCP50946B1Z2">
-        </div>
-        <input type="file" accept="image/*" onchange="uploadLogo(event)">
-    </div>
-</div>
+      <div class="form-group">
+        <label>Student Name</label>
+        <input type="text" id="name" required>
+      </div>
 
-<!-- INVOICE INFO -->
-<table>
-<tr>
-<td>Invoice No: <input id="invNo"></td>
-<td>Date: <input type="date" id="invDate"></td>
-</tr>
-</table>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" required>
+      </div>
 
-<!-- BILL / SHIP -->
-<div class="grid2">
-<div class="box">
-<h3>Bill To</h3>
-<input placeholder="Customer Name"><br>
-<input placeholder="Address"><br>
-GSTIN: <input>
-</div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select id="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
 
-<div class="box">
-<h3>Ship To</h3>
-<input placeholder="Customer Name"><br>
-<input placeholder="Address">
-</div>
-</div>
+      <div class="form-group">
+        <label>Course Name</label>
+        <input type="text" id="course" required>
+      </div>
 
-<!-- ITEMS -->
-<table id="items">
-<tr>
-<th>#</th><th>Description</th><th>HSN</th>
-<th>Qty</th><th>Rate</th><th>Taxable</th>
-<th>GST%</th><th>Tax</th><th>Total</th>
-</tr>
-</table>
+      <div class="form-group">
+        <label>College Name</label>
+        <input type="text" id="college" required>
+      </div>
 
-<button class="btn" onclick="addRow()">+ Add Item</button>
+      <div class="form-group">
+        <label>Annual Family Income (₹)</label>
+        <input type="number" id="income" required>
+      </div>
 
-<!-- SUMMARY -->
-<table class="summary">
-<tr><td>Subtotal</td><td><input id="sub" readonly></td></tr>
-<tr><td>CGST</td><td><input id="cgst" readonly></td></tr>
-<tr><td>SGST</td><td><input id="sgst" readonly></td></tr>
-<tr><td><b>Grand Total</b></td><td><input id="grand" readonly></td></tr>
-<tr><td>Received</td><td><input id="received"></td></tr>
-<tr><td>Balance</td><td><input id="balance" readonly></td></tr>
-</table>
+      <div class="form-group">
+        <label>Category</label>
+        <select id="category" required>
+          <option value="">Select</option>
+          <option>General</option>
+          <option>OBC</option>
+          <option>SC</option>
+          <option>ST</option>
+        </select>
+      </div>
 
-<p><b>Amount in words:</b> <span id="words"></span></p>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" required>
+      </div>
 
-</div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="email" required>
+      </div>
 
-<script>
-/* AUTO INVOICE NO */
-let count=localStorage.invCount?+localStorage.invCount:1001;
-invNo.value=count;
-invDate.value=new Date().toISOString().slice(0,10);
+      <button type="submit">Apply Scholarship</button>
 
-/* LOGO */
-function uploadLogo(e){
- let r=new FileReader();
- r.onload=()=>{logoPreview.src=r.result;localStorage.logo=r.result};
- r.readAsDataURL(e.target.files[0]);
-}
-if(localStorage.logo)logoPreview.src=localStorage.logo;
+    </form>
 
-/* ITEMS */
-let i=1;
-function addRow(){
- let t=document.getElementById("items");
- let r=t.insertRow();
- r.innerHTML=`
- <td>${i++}</td>
- <td><input></td>
- <td><input></td>
- <td><input class="q"></td>
- <td><input class="r"></td>
- <td><input class="txb" readonly></td>
- <td><input class="g"></td>
- <td><input class="tx" readonly></td>
- <td><input class="tot" readonly></td>`;
- document.querySelectorAll(".q,.r,.g").forEach(x=>x.oninput=calc);
-}
-addRow();
+    <p id="message"></p>
+  </div>
 
-function calc(){
- let rows=document.querySelectorAll("#items tr");
- let s=0,t=0;
- rows.forEach((r,n)=>{
- if(n==0)return;
- let q=+r.querySelector(".q").value||0;
- let ra=+r.querySelector(".r").value||0;
- let g=+r.querySelector(".g").value||0;
- let txb=q*ra;
- let tax=txb*g/100;
- r.querySelector(".txb").value=txb.toFixed(2);
- r.querySelector(".tx").value=tax.toFixed(2);
- r.querySelector(".tot").value=(txb+tax).toFixed(2);
- s+=txb;t+=tax;
- });
- sub.value=s.toFixed(2);
- cgst.value=(t/2).toFixed(2);
- sgst.value=(t/2).toFixed(2);
- grand.value=(s+t).toFixed(2);
- words.innerText=Math.round(s+t)+" Rupees Only";
- balance.value=(grand.value-(received.value||0)).toFixed(2);
-}
-
-/* SAVE */
-function saveInv(){localStorage.invCount=++count}
-
-/* DOWNLOAD */
-function downloadImage(){
- saveInv();
- html2canvas(invoice,{scale:2}).then(c=>{
- let a=document.createElement("a");
- a.download="Invoice_"+invNo.value+".png";
- a.href=c.toDataURL();a.click();
- });
-}
-function downloadPDF(){
- saveInv();
- html2canvas(invoice,{scale:2}).then(c=>{
- const {jsPDF}=window.jspdf;
- let pdf=new jsPDF("p","mm","a4");
- let img=c.toDataURL("image/png");
- let w=210,h=c.height*w/c.width;
- pdf.addImage(img,"PNG",0,0,w,h);
- pdf.save("Invoice_"+invNo.value+".pdf");
- });
-}
-function shareWhatsApp(){
- window.open("https://wa.me/?text=Invoice "+invNo.value+" Amount ₹"+grand.value);
-}
-</script>
-
+  <script src="src/index.js"></script>
 </body>
 </html>
