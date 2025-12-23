@@ -2,79 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Scholarship Application Form</title>
-  <link rel="stylesheet" href="src/style.css">
+  <title>Medical Tax Invoice</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>🎓 Scholarship Application Form</h1>
+<div class="invoice">
 
-    <form id="scholarshipForm">
+  <div class="top-bar">TAX INVOICE</div>
 
-      <div class="form-group">
-        <label>Student Name</label>
-        <input type="text" id="name" required>
-      </div>
-
-      <div class="form-group">
-        <label>Date of Birth</label>
-        <input type="date" id="dob" required>
-      </div>
-
-      <div class="form-group">
-        <label>Gender</label>
-        <select id="gender" required>
-          <option value="">Select</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Course Name</label>
-        <input type="text" id="course" required>
-      </div>
-
-      <div class="form-group">
-        <label>College Name</label>
-        <input type="text" id="college" required>
-      </div>
-
-      <div class="form-group">
-        <label>Annual Family Income (₹)</label>
-        <input type="number" id="income" required>
-      </div>
-
-      <div class="form-group">
-        <label>Category</label>
-        <select id="category" required>
-          <option value="">Select</option>
-          <option>General</option>
-          <option>OBC</option>
-          <option>SC</option>
-          <option>ST</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Mobile Number</label>
-        <input type="tel" id="mobile" required>
-      </div>
-
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" id="email" required>
-      </div>
-
-      <button type="submit">Apply Scholarship</button>
-
-    </form>
-
-    <p id="message"></p>
+  <div class="header">
+    <h1>MEDICAL INVOICE</h1>
+    <p>Address: Church Street, Bengaluru</p>
+    <p>Phone: +91-1075314648 | +91-8029924749</p>
   </div>
 
-  <script src="src/index.js"></script>
+  <div class="party">
+    <h3>Party's Name</h3>
+    <div class="party-grid">
+      <label>Name</label><input>
+      <label>Address</label><input>
+      <label>GSTIN No</label><input>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Item</th>
+        <th>HSN</th>
+        <th>Qty</th>
+        <th>Rate</th>
+        <th>Tax %</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="items"></tbody>
+  </table>
+
+  <button class="add-btn" onclick="addRow()">+ Add Item</button>
+
+  <div class="totals">
+    <div><span>Sub Total</span><span id="subTotal">0.00</span></div>
+    <div><span>Total Tax</span><span id="totalTax">0.00</span></div>
+    <div class="grand"><span>Grand Total</span><span id="grandTotal">0.00</span></div>
+  </div>
+
+  <div class="bottom">
+    <div class="left">
+      <strong>Amount in Words</strong>
+      <div class="box" id="amountWords"></div>
+
+      <strong>Terms and Conditions</strong>
+      <div class="box">
+        Goods once sold cannot be returned.<br>
+        Payment should be made immediately.<br>
+        Subject to local jurisdiction.
+      </div>
+    </div>
+
+    <div class="signature"><br><br><br><br>
+      <p><b>For Medical Store</b></p>
+      <div class="sign">Mathi</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
