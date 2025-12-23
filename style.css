@@ -1,70 +1,127 @@
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+*{
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
 
-body {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  min-height: 100vh;
-  margin: 0;
-  padding: 30px;
+body{
+  background:#000;
+  padding:30px;
 }
 
-.container {
-  max-width: 500px;
-  background: #fff;
-  margin: auto;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.invoice{
+  width:950px;
+  margin:auto;
+  background:#fff;
+  border-radius:10px;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+.top-bar{
+  background:#5444d4;
+  color:#fff;
+  text-align:center;
+  padding:12px;
+  font-weight:bold;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.header{
+  text-align:center;
+  padding:20px;
 }
 
-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
+.header h1{
+  color:#5444d4;
 }
 
-input, select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.party{
+  padding:15px;
 }
 
-input:focus, select:focus {
-  outline: none;
-  border-color: #4facfe;
+.party h3{
+  background:#e7e5ff;
+  padding:8px;
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  background: #4facfe;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
+.party-grid{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:10px;
 }
 
-button:hover {
-  background: #00c6fb;
+.party-grid input{
+  border:none;
+  border-bottom:1px solid #aaa;
 }
 
-#message {
-  text-align: center;
-  margin-top: 15px;
-  font-weight: bold;
-  color: green;
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+
+thead{
+  background:#5444d4;
+  color:#fff;
+}
+
+th,td{
+  border:1px solid #ccc;
+  padding:8px;
+  text-align:center;
+}
+
+td input{
+  width:100%;
+  border:none;
+  text-align:center;
+}
+
+.add-btn{
+  margin:10px;
+  padding:8px 15px;
+  background:#5444d4;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+.totals{
+  width:300px;
+  margin-left:auto;
+  padding:10px 20px;
+}
+
+.totals div{
+  display:flex;
+  justify-content:space-between;
+  padding:5px 0;
+}
+
+.grand{
+  font-weight:bold;
+  font-size:18px;
+}
+
+.bottom{
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+}
+
+.box{
+  min-height:60px;
+  border:1px solid #ccc;
+  margin-bottom:10px;
+  padding:5px;
+}
+
+.signature{
+  width:200px;
+  text-align:center;
+}
+
+.sign-line{
+  margin:25px 0 5px;
+  border-top:1px solid #000;
+  padding-top:5px;
+  font-weight:bold;
 }
