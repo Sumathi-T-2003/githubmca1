@@ -1,127 +1,91 @@
-*{
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+body {
+  font-family: "Segoe UI", sans-serif;
 }
 
-body{
-  background:#000;
-  padding:30px;
+/* Poster */
+.poster {
+  width: 800px;
+  height: 520px;
+  background: #f3efe6;
+  overflow: hidden;
 }
 
-.invoice{
-  width:950px;
-  margin:auto;
-  background:#fff;
-  border-radius:10px;
+/* LEFT IMAGE CONTAINER */
+.flower-side {
+  position: relative;
+  background: #f3efe6;
+  overflow: hidden;
 }
 
-.top-bar{
-  background:#5444d4;
-  color:#fff;
-  text-align:center;
-  padding:12px;
-  font-weight:bold;
+/* BIG FLOWER IMAGE */
+.flower-img {
+  position: absolute;
+  left: -70px;     /* left-ku move */
+  bottom: -50px;   /* bottom-ku move */
+  height: 115%;    /* IMAGE BIG */
+  width: auto;
 }
 
-.header{
-  text-align:center;
-  padding:20px;
+/* RIGHT SIDE */
+.content-side {
+  display: flex;
+  flex-direction: column;
 }
 
-.header h1{
-  color:#5444d4;
+/* Bullet text */
+.bullet-text li {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 18px;
 }
 
-.party{
-  padding:15px;
+.bullet-text li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #999;
 }
 
-.party h3{
-  background:#e7e5ff;
-  padding:8px;
+/* Green strip */
+.brand-strip {
+  background: #cddc39;
+  padding: 18px;
+  margin: 20px 0;
 }
 
-.party-grid{
-  display:grid;
-  grid-template-columns:120px 1fr;
-  gap:10px;
+.brand-strip h2 {
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin: 0;
 }
 
-.party-grid input{
-  border:none;
-  border-bottom:1px solid #aaa;
+.brand-strip h1 {
+  font-size: 32px;
+  margin: 0;
+  font-weight: bold;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:10px;
+.brand-strip span {
+  font-style: italic;
+  font-weight: normal;
 }
 
-thead{
-  background:#5444d4;
-  color:#fff;
+/* Perfection box */
+.perfection-box {
+  background: #d6d0c4;
+  padding: 14px;
+  margin-bottom: 20px;
 }
 
-th,td{
-  border:1px solid #ccc;
-  padding:8px;
-  text-align:center;
+.perfection-box h5 {
+  letter-spacing: 2px;
+  margin-bottom: 5px;
 }
 
-td input{
-  width:100%;
-  border:none;
-  text-align:center;
-}
-
-.add-btn{
-  margin:10px;
-  padding:8px 15px;
-  background:#5444d4;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-}
-
-.totals{
-  width:300px;
-  margin-left:auto;
-  padding:10px 20px;
-}
-
-.totals div{
-  display:flex;
-  justify-content:space-between;
-  padding:5px 0;
-}
-
-.grand{
-  font-weight:bold;
-  font-size:18px;
-}
-
-.bottom{
-  display:flex;
-  justify-content:space-between;
-  padding:20px;
-}
-
-.box{
-  min-height:60px;
-  border:1px solid #ccc;
-  margin-bottom:10px;
-  padding:5px;
-}
-
-.signature{
-  width:200px;
-  text-align:center;
-}
-
-.sign-line{
-  margin:25px 0 5px;
-  border-top:1px solid #000;
-  padding-top:5px;
-  font-weight:bold;
+/* Footer */
+.footer span {
+  font-size: 12px;
+  color: #555;
 }
