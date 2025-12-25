@@ -1,11 +1,10 @@
 {
-  "name": "scholarship-form",
+  "name": "flower-poster",
   "version": "1.0.0",
-  "description": "Simple Scholarship Application Form",
-  "main": "index.html",
   "scripts": {
     "start": "live-server"
   },
-  "author": "Your Name",
-  "license": "ISC"
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }
