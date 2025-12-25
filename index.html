@@ -2,75 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Medical Tax Invoice</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Lorem Flower Shop</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-<div class="invoice">
+<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
 
-  <div class="top-bar">TAX INVOICE</div>
+<div class="poster shadow-lg">
+  <div class="row g-0 h-100">
 
-  <div class="header">
-    <h1>MEDICAL INVOICE</h1>
-    <p>Address: Church Street, Bengaluru</p>
-    <p>Phone: +91-1075314648 | +91-8029924749</p>
-  </div>
-
-  <div class="party">
-    <h3>Party's Name</h3>
-    <div class="party-grid">
-      <label>Name</label><input>
-      <label>Address</label><input>
-      <label>GSTIN No</label><input>
+    <!-- LEFT FLOWER IMAGE -->
+    <div class="col-md-5 flower-side">
+      <img src="flower img/pink tulip img.jfif" alt="Flower" class="flower-img">
     </div>
-  </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>S.No</th>
-        <th>Item</th>
-        <th>HSN</th>
-        <th>Qty</th>
-        <th>Rate</th>
-        <th>Tax %</th>
-        <th>Amount</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody id="items"></tbody>
-  </table>
+    <!-- RIGHT CONTENT -->
+    <div class="col-md-7 content-side p-4">
 
-  <button class="add-btn" onclick="addRow()">+ Add Item</button>
+      <!-- Bullet Points -->
+      <ul class="list-unstyled bullet-text">
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet</li>
+      </ul>
 
-  <div class="totals">
-    <div><span>Sub Total</span><span id="subTotal">0.00</span></div>
-    <div><span>Total Tax</span><span id="totalTax">0.00</span></div>
-    <div class="grand"><span>Grand Total</span><span id="grandTotal">0.00</span></div>
-  </div>
-
-  <div class="bottom">
-    <div class="left">
-      <strong>Amount in Words</strong>
-      <div class="box" id="amountWords"></div>
-
-      <strong>Terms and Conditions</strong>
-      <div class="box">
-        Goods once sold cannot be returned.<br>
-        Payment should be made immediately.<br>
-        Subject to local jurisdiction.
+      <!-- Green Brand Strip -->
+      <div class="brand-strip">
+        <h2>LOREM</h2>
+        <h1>Flower <span>Shop</span></h1>
       </div>
-    </div>
 
-    <div class="signature"><br><br><br><br>
-      <p><b>For Medical Store</b></p>
-      <div class="sign">Mathi</div>
+      <!-- Perfection Box -->
+      <div class="perfection-box text-center">
+        <h5>PERFECTION</h5>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer d-flex justify-content-between mt-auto">
+        <span>📞 +65435 577897</span>
+        <span>✉ mail@yourwebsite.com</span>
+        <span>🌐 www.yourwebsite.com</span>
+      </div>
+
     </div>
   </div>
-
 </div>
 
-<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
