@@ -1,17 +1,42 @@
-const snowContainer = document.getElementById('snow');
+// 1. Initialize Cart
+let cart = [];
+const cartCountElement = document.getElementById('cart-count');
 
-function createSnowflake() {
-  const snowflake = document.createElement('span');
-  snowflake.classList.add('snowflake');
-  snowflake.innerText = '❄';
-  snowflake.style.left = Math.random() * window.innerWidth + 'px';
-  snowflake.style.animationDuration = 2 + Math.random() * 3 + 's';
-  snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
-  snowContainer.appendChild(snowflake);
-
-  setTimeout(() => {
-    snowflake.remove();
-  }, 5000);
+// 2. Function to Add to Cart
+function addToCart(productName, price) {
+    const item = {
+        name: productName,
+        price: price
+    };
+    
+    // Add item to the array
+    cart.push(item);
+    
+    // Update the UI
+    updateCartUI();
+    
+    // Show Alert (Optional: Can be replaced with a nice Toast notification)
+    alert(`${productName} has been added to your cart!`);
 }
 
-setInterval(createSnowflake, 200);
+// 3. Update Cart Count Display
+function updateCartUI() {
+    cartCountElement.innerText = cart.length;
+}
+
+// 4. Adding Event Listeners to Buttons
+// Indha logic products.html-la irukura ellaa buttons-kum work aagum
+document.addEventListener('DOMContentLoaded', () => {
+    const addButtons = document.querySelectorAll('.card button');
+
+    addButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            // Card-kulla irukura h3 (Name) and p (Price)-ah fetch pannudhu
+            const card = button.parentElement;
+            const name = card.querySelector('h3').innerText;
+            const price = card.querySelector('p').innerText;
+            
+            addToCart(name, price);
+        });
+    });
+});
