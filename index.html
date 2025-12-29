@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshMart | Best Online Grocery</title>
+    <title>FreshMart | Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,40 +12,29 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="#" id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>Freshness Delivered to You</h1>
-        <p>Get the best quality groceries at the lowest prices.</p>
-        <a href="products.html" class="btn">Start Shopping</a>
+        <h1>Welcome to FreshMart</h1>
+        <a href="products.html" class="btn">Shop Now</a>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Our Best Categories</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400" alt="Veggies">
-                <h3>Fresh Vegetables</h3>
-                <a href="products.html" class="btn">View All</a>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400" alt="Fruits">
-                <h3>Organic Fruits</h3>
-                <a href="products.html" class="btn">View All</a>
-            </div>
-            <div class="card">
-                <img src="C:\Users\dell\Documents\html\Grocery Website\image\dairy product.jfif" alt="Dairy">
-                <h3>Dairy Products</h3>
-                <a href="products.html" class="btn">View All</a>
-            </div>
+        <h2 class="section-title">My Orders (Track & Delete)</h2>
+        <div id="orders-list" class="grid"></div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items-container"></div>
+            <h3>Total: ₹<span id="total-amount">0</span></h3>
+            <button onclick="checkout()" class="btn" style="width:100%">Buy Now</button>
         </div>
     </div>
 
-    <footer>&copy; 2024 FreshMart Grocery. All rights reserved.</footer>
     <script src="script.js"></script>
 </body>
 </html>
