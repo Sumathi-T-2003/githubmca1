@@ -1,0 +1,15 @@
+.app {
+  text-align: center;
+  margin-top: 120px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
